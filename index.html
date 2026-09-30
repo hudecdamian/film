@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Květinový Svět pro Tebe 🌸</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Padající okvětní lístky na pozadí -->
+    <div class="petals-container" id="petalsContainer"></div>
+
+    <div class="mobile-wrapper">
+        <!-- Hlavička -->
+        <header class="header">
+            <span class="badge">Speciálně pro tebe</span>
+            <h1>Květinová Zahrada</h1>
+            <p>Místo plné vůně růží, pivoňek a lilií ✨</p>
+        </header>
+
+        <!-- Navigační záložky (Květiny) -->
+        <nav class="flower-tabs">
+            <button class="tab-btn active" data-flower="roses">🌹 Růže</button>
+            <button class="tab-btn" data-flower="peonies">🌸 Pivoňky</button>
+            <button class="tab-btn" data-flower="lilies">🌷 Lilie</button>
+        </nav>
+
+        <!-- Obsah jednotlivých květin -->
+        <main class="content-container">
+            
+            <!-- RŮŽE -->
+            <section id="roses" class="flower-section active">
+                <div class="card">
+                    <div class="flower-img-box rose-bg">
+                        <span class="big-emoji">🌹</span>
+                    </div>
+                    <h2>Královna Růže</h2>
+                    <p class="subtitle">Symbol elegance, síly a úcty</p>
+                    <p class="description">
+                        Růže jsou jako ty – okouzlující, mají svůj vlastní styl a dokážou rozzářit každý den. Jejich vůně je nezapomenutelná a připomíná, že v životě záleží na detailech.
+                    </p>
+                    <div class="fun-fact">
+                        💡 <strong>Věděla jsi?</strong> Růže symbolizují upřímnost a v přátelství představují hlubokou důvěru.
+                    </div>
+                </div>
+            </section>
+
+            <!-- PIVOŇKY -->
+            <section id="peonies" class="flower-section">
+                <div class="card">
+                    <div class="flower-img-box peony-bg">
+                        <span class="big-emoji">🌸</span>
+                    </div>
+                    <h2>Jemná Pivoňka</h2>
+                    <p class="subtitle">Symbol štěstí, radosti a pohody</p>
+                    <p class="description">
+                        Pivoňky jsou naducané, veselé a plné pozitivní energie. Když rozkvetou, celá místnost ožije – přesně jako když se objevíš ty s dobrou náladou!
+                    </p>
+                    <div class="fun-fact">
+                        💡 <strong>Věděla jsi?</strong> V Asii jsou pivoňky považovány za posly dobrého zdraví a radosti.
+                    </div>
+                </div>
+            </section>
+
+            <!-- LILIE -->
+            <section id="lilies" class="flower-section">
+                <div class="card">
+                    <div class="flower-img-box lily-bg">
+                        <span class="big-emoji">🌷</span>
+                    </div>
+                    <h2>Vznešená Lilie</h2>
+                    <p class="subtitle">Symbol čistoty, grácie a originality</p>
+                    <p class="description">
+                        Lilie v sobě nesou lehkost a neuvěřitelnou eleganci. Jejich vůně je svěží a připomíná mi, jak skvělé je mít kolem sebe inspirativní lidi.
+                    </p>
+                    <div class="fun-fact">
+                        💡 <strong>Věděla jsi?</strong> Lilie patřily v historii k nejuctívanějším květinám pro svou jedinečnou krásu.
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Minihra: Sbírání květin do košíku -->
+        <section class="interactive-section">
+            <div class="card game-card">
+                <h3>🧺 Minihra: Sbírej květiny</h3>
+                <p>Chyť co nejvíc padajících květin do košíku!</p>
+                
+                <div class="game-info">
+                    <span>Skóre: <strong id="scoreVal">0</strong></span>
+                    <button id="startBtn" class="start-btn">Start hry 🎮</button>
+                </div>
+
+                <!-- Herní plocha -->
+                <div id="gameArea" class="game-area">
+                    <div id="basket" class="basket">🧺</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

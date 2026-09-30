@@ -1,0 +1,288 @@
+/* Základní proměnné a reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 50%, #e8f5e9 100%);
+    color: #4a4a4a;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Mobilní obal (kontejner stylizovaný jako displej telefonu) */
+.mobile-wrapper {
+    width: 100%;
+    max-width: 420px;
+    min-height: 100vh;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    padding: 20px 16px;
+    position: relative;
+    z-index: 2;
+}
+
+@media (min-width: 480px) {
+    .mobile-wrapper {
+        min-height: 90vh;
+        border-radius: 30px;
+        margin: 20px 0;
+        border: 8px solid #fff;
+    }
+}
+
+/* Hlavička */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.badge {
+    background-color: #f8bbd0;
+    color: #880e4f;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.header h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.6rem;
+    color: #ad1457;
+    margin-top: 5px;
+}
+
+.header p {
+    font-size: 0.9rem;
+    color: #6d6d6d;
+}
+
+/* Záložky květin */
+.flower-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 10px 8px;
+    border: none;
+    background-color: #f1f1f1;
+    border-radius: 14px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+
+.tab-btn.active {
+    background: linear-gradient(135deg, #ec407a, #d81b60);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(216, 27, 96, 0.3);
+}
+
+/* Kontejner pro obsah květin */
+.content-container {
+    flex: 1;
+    margin-bottom: 20px;
+}
+
+.flower-section {
+    display: none;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.flower-section.active {
+    display: block;
+}
+
+/* Karty */
+.card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    border: 1px solid rgba(255, 182, 193, 0.3);
+}
+
+.flower-img-box {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.rose-bg { background: linear-gradient(135deg, #ffebee, #ffcdd2); }
+.peony-bg { background: linear-gradient(135deg, #fce4ec, #f8bbd0); }
+.lily-bg { background: linear-gradient(135deg, #e8f5e9, #c8e6c9); }
+
+.big-emoji {
+    font-size: 3rem;
+    animation: floatEmoji 3s ease-in-out infinite;
+}
+
+.card h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.subtitle {
+    font-size: 0.85rem;
+    color: #ad1457;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.description {
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.fun-fact {
+    background-color: #fafafa;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 0.82rem;
+    color: #666;
+    border-left: 4px solid #ec407a;
+    text-align: left;
+}
+
+/* Styly pro minihru */
+.game-card {
+    background: linear-gradient(135deg, #fff, #fff0f5);
+}
+
+.game-card h3 {
+    font-size: 1.2rem;
+    color: #ad1457;
+    margin-bottom: 2px;
+}
+
+.game-card p {
+    font-size: 0.83rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    color: #444;
+}
+
+.start-btn {
+    background: linear-gradient(135deg, #ec407a, #d81b60);
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(216, 27, 96, 0.3);
+}
+
+.game-area {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    background: #f9f9f9;
+    border: 2px dashed #f8bbd0;
+    border-radius: 14px;
+    overflow: hidden;
+    touch-action: none; /* Důležité pro plynulý dotyk na mobilu */
+}
+
+.basket {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.2rem;
+    cursor: grab;
+    user-select: none;
+}
+
+.falling-item {
+    position: absolute;
+    top: -30px;
+    font-size: 1.8rem;
+    user-select: none;
+}
+
+/* Patička */
+.footer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 10px;
+}
+
+/* Animace padajících lístků na pozadí */
+.petals-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.petal {
+    position: absolute;
+    background-color: #ffb6c1;
+    border-radius: 150% 0 150% 0;
+    animation: fall linear infinite;
+    opacity: 0.6;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10vh) rotate(0deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatEmoji {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
